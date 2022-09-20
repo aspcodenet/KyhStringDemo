@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Reflection.Metadata;
@@ -13,8 +14,142 @@ namespace KyhStringDemo
 {
     internal class App
     {
+        /*                  Tisdag 20 sept
+         *               GENOMGÅNG STRING-LABBAR
+         *
+         *                Fundera på vilka ni vill att jag visar??
+         
+         *                 Så frågar jag 08:30
+         */
+
+
+
+        /*
+         *Be användaren mata in en mailadress.
+        Programmet skall kontrollera att inmatningen är rätt
+        dvs att det finns ett @ tecken och
+        att det finns en . med 2 eller 3 tecken efter.
+        Meddela användaren om det är rätt eller felaktig adress
+        ex a@a.se = ok a@a.hejsan = fel a@a = fel
+         *
+         *
+         */
+
+
         public void Run()
         {
+            string texten = "Detta är min text som jag matar in";
+            // antalord = antal mellanslag + 1
+            int antalMellanslag = 0;
+            foreach (char ch in texten)
+            {
+                if (ch == ' ')
+                    antalMellanslag++;
+            }
+            Console.WriteLine($"Antal ord är {antalMellanslag+1} hallo");
+
+
+
+
+            string orig = "Ni talar bra latin";
+            orig = orig.ToLower().Replace(" ", "");  // len = 15
+            string reversed = "";
+
+            foreach (char ch in orig)
+            {
+                reversed = ch + reversed;
+            }
+            //for (int i = orig.Length - 1; i >= 0; i--)
+            //{
+            //    reversed += orig[i];
+            //}
+
+            if (reversed == orig)
+            {
+                Console.WriteLine("Palindrom");
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            foreach (char c in orig)
+            {
+                reversed = c + reversed;
+            }
+
+            reversed = "";
+            for (int i = orig.Length - 1; i >= 0; i--)
+            {
+                char c = orig[i];
+                reversed += c;
+            }
+
+
+            string email = "se.h@aase354";
+            int index = email.IndexOf("@");   // -> -1
+            int lastDotIndex = email.LastIndexOf('.'); // 7
+            int antalAfterDot = email.Length - lastDotIndex - 1;
+
+            if(index != -1 && lastDotIndex != -1 && (antalAfterDot == 2 || antalAfterDot == 3))
+                Console.WriteLine("Valid");
+            else
+                Console.WriteLine("Ogiltig");
+
+
+
+            //              0123456789
+            //string email = "se.h@aase354";
+
+            //int index = email.IndexOf("@");   // -> -1
+            //if (index != -1)
+            //{
+            //    int lastDotIndex = email.LastIndexOf('.'); // 7
+            //    if (lastDotIndex == -1)
+            //    {
+            //        Console.WriteLine("Gogiltif");
+            //    }
+            //    else
+            //    {
+            //        //Length = 10
+            //        int antalAfterDot = email.Length - lastDotIndex - 1;
+            //        if (antalAfterDot == 2 || antalAfterDot == 3)
+            //        {
+            //            Console.WriteLine("Giltig");
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Ogiltig");
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Ogiltig");
+            //}
+
+            //if (email.Contains("@"))
+            //{
+
+            //}
+
+
+
+
+
             // 12:30 GENOMGÅNG "Kurt Arne Andersson"
             string namn = "kurt arne andersson";
             string modifiedString = "";
